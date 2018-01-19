@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="book_loans_template">
+  <t t-call="web.html_container">
+  <t t-foreach="docs" t-as="doc">
+  <t t-call="web.internal_layout">
+    <div class="page">
+      <div class="oe_structure">
+        <h1>Book Loans for <t t-esc="doc.name"/></h1>
+        <table class="table table-condensed">
+          <thead>
+            <tr><th>Title</th><th>Expected return date</th></tr>
+          </thead>
+          <tbody>
+            <tr t-foreach="doc.loan_ids" t-as="loan" >
+              <td><t t-esc="loan.book_id.name" /></td>
+              <td><t t-esc="loan.expected_return_date" /></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </t>
+  </t>
+  </t>
+</template>
+</odoo>

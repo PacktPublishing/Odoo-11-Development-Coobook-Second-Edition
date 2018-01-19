@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <report id="report_book_loans"
+          name="my_module.book_loans_template"
+          model="library.member"
+          string="Book Loans"
+          report_type="qweb-pdf" />
+</odoo>

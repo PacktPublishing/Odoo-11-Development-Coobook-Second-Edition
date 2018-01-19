@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+  <data>
+
+    <act_window
+      id="library_member_action"
+      name="Library Members"
+      res_model="library.member" />
+
+    <menuitem
+      id="library_members_menu"
+      name="Library Members"
+      action="library_member_action"
+      parent=""
+      sequence="6" />
+
+    <record id="library_member_view_form" model="ir.ui.view">
+      <field name="name">Library Member Form</field>
+      <field name="model">library.member</field>
+      <field name="arch" type="xml">
+        <form>
+          <group>
+            <field name="name"/>
+            <!--field name="nb_late_loans"/-->
+          </group>
+          <group>
+            <field name="loan_ids">
+              <tree>
+                <field name="book_id"/>
+                <field name="expected_return_date"/>
+                <field name="state"/>
+              </tree>
+            </field>
+          </group>
+          <div class="oe_chatter">
+              <field name="message_follower_ids" widget="mail_followers"
+                     groups="base.group_user" />
+              <field name="message_ids" widget="mail_thread" />
+          </div>
+        </form>
+      </field>
+    </record>
+    
+
+    <record id="library_member_view_tree" model="ir.ui.view">
+      <field name="name">Library Member List</field>
+      <field name="model">library.member</field>
+      <field name="arch" type="xml">
+
+        <tree>
+          <field name="name"/>
+          <field name="nb_late_loans"/>
+        </tree>
+
+      </field>
+    </record>
+
+    <record id="library_member_view_search" model="ir.ui.view">
+      <field name="name">Library Member Search</field>
+      <field name="model">library.member</field>
+      <field name="arch" type="xml">
+
+        <search>
+          <field name="name"/>
+        </search>
+
+      </field>
+    </record>
+
+</data>
+</openerp>

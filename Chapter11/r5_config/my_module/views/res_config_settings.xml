@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_general_config_library" model="ir.ui.view">
+      <field name="name">Configuration: add Library options</field>
+      <field name="model">base.config.settings</field>
+      <field name="inherit_id" ref="base_setup.base_config_settings_view_form" />
+      <field name="arch" type="xml">
+
+        <div id="business_documents" position="before">
+          <div id="my_module">
+            <h2>Library</h2>
+            <!-- Release Dates option -->
+            <div>
+              <field name="group_release_dates" class="oe_inline"/>
+              <label for="group_release_dates" />
+            </div>
+            <!-- Notes option -->
+            <div>
+              <field name="module_note" class="oe_inline"/>
+              <label for="module_note" />
+            </div>
+          </div>
+        </div>
+
+      </field>
+    </record>
+
+</odoo>

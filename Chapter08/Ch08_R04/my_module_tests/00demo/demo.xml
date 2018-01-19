@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record model='library.book' id='demobook'>
+    <field name="name">Odoo Development Cookbook</field>
+  </record>
+</odoo>

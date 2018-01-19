@@ -1,0 +1,16 @@
+py3ofusion:
+    image: xcgd/py3o.fusion
+    ports:
+        - "8765:8765"
+    links:
+        - "py3orenderserver"
+
+py3orenderserver:
+    image: xcgd/py3oserver-docker
+    links:
+        - "oooserver"
+    volumes_from:
+        - "oooserver"
+
+oooserver:
+    image: xcgd/libreoffice

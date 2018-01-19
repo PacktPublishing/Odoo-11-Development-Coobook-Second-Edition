@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="book1" model="library.book">
+    <field name="name">Odoo Development Cookbook</field>
+  </record>
+
+  <record id="book2" model="library.book">
+    <field name="name">Odoo Essentials</field>
+  </record>
+
+  <record id="member1" model="library.member">
+    <field name="name">Fabien</field>
+    <field name="email">fabien@example.com</field>
+  </record>
+
+  <record id="loan1" model="library.book.loan">
+    <field name="book_id" ref="book1"/>
+    <field name="member_id" ref="member1"/>
+    <field name="expected_return_date">2017-10-01</field>
+    <field name="state">ongoing</field>
+  </record>
+  <record id="loan2" model="library.book.loan">
+    <field name="book_id" ref="book2"/>
+    <field name="member_id" ref="member1"/>
+    <field name="expected_return_date">2017-10-10</field>
+    <field name="state">ongoing</field>
+  </record>
+</odoo>

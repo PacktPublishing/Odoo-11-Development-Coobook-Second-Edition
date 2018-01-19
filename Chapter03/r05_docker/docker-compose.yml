@@ -1,0 +1,36 @@
+version: '2'
+services:
+  odoo:
+    build: .
+    image: yourcompany/yourproject
+    depends_on:
+      - db
+    volumes:
+      - "data-odoo:/filestore"
+    environment:
+      - ODOO_DB_USER=odoo
+      - ODOO_DB_PASSWORD=odoo
+      - ODOO_DB_NAME=odoodb
+      - ODOO_DB_HOST=db
+      - ODOO_ADMIN_PASSWORD=randompass
+    ports:
+      - 8069
+      - 8072
+    restart: always
+
+  db:
+    image: postgres:9.6
+    environment:
+      - POSTGRES_USER=odoo
+      - POSTGRES_PASSWORD=odoo
+      - POSTGRES_DB=odoodb
+      - PG_SYSTEM_SHARED_BUFFERS=256MB
+      - PG_SYSTEM_MAINTENANCE_WORK_MEM=256MB
+      - PG_SYSTEM_WAL_BUFFERS=8MB
+      - PG_SYSTEM_EFFECTIVE_CACHE_SIZE=1024MB
+    volumes:
+      - "data-db:/var/lib/postgresql/data"
+
+volumes:
+  data-odoo:
+  data-db:

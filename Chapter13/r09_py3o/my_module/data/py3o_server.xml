@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="local_py3o_server" model="py3o.server">
+    <field name="url">http://localhost:8765/form</field>
+  </record>
+
+</odoo>

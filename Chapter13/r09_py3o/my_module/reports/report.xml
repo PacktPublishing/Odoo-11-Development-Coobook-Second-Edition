@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <record id="local_py3o_server" model="py3o.server">
+    <field name="url">http://localhost:8765/form</field>
+  </record>
+  
+  <record id="report_book_loans_py3o" model="ir.actions.report.xml">
+    <field name="name">Book Loans</field>
+    <field name="model">library.member</field>
+    <field name="report_name">library.member.loans</field>
+    <field name="report_type">py3o</field>
+    <field name="py3o_filetype">pdf</field>
+    <field name="py3o_server_id" ref="local_py3o_server"/>
+    <field name="module">my_module</field>
+    <field name="py3o_template_fallback">reports/book_loans.odt</field>
+  </record>
+
+  <!-- Add entry in "Print" drop-down list -->
+  <record id="button_partner_summary_report" model="ir.values">
+    <field name="key2">client_print_multi</field>
+    <field name="model">res.partner</field>
+    <field name="name">Book Loans</field>
+    <field name="value" eval="'ir.actions.report.xml,%d'%report_book_loans_py3o" />
+  </record>
+  
+</odoo>
